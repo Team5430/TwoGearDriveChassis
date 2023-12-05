@@ -27,6 +27,7 @@ public class driveTrain extends SubsystemBase     {
 
   public static DoubleSolenoid driveshifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
     
+  //When a button is held down it will drive faster
     public static Command driveToggle() {      
 
         return new InstantCommand(
@@ -35,16 +36,18 @@ public class driveTrain extends SubsystemBase     {
 
     }
 
+    //It sets the drive value forward
     public static void pneumaticENABLE(){
-        driveshifter.set(Value.kForward);
+        driveshifter.set(Value.kReverse);
     }
 
+    //Makes the left and right groups of motors move half speed
     public void drive(double left, double right){
     
         frontrightmotor.set(ControlMode.PercentOutput, right/2); 
         backrightmotor.set(ControlMode.PercentOutput, right/2);
-        frontleftmotor.set(ControlMode.PercentOutput, left/2);  
-        backleftmotor.set(ControlMode.PercentOutput, left/2);
+        frontleftmotor.set(ControlMode.PercentOutput, -left/2);  
+        backleftmotor.set(ControlMode.PercentOutput, -left/2);
     }
 
     public Command Akira (double left, double right){

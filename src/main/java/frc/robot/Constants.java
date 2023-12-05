@@ -2,6 +2,7 @@ package frc.robot;
 
 public class Constants {
 
+//Can ID of each Motorcontroller
     public class CANid{
         public static final int backleftmotorCAN  = 1;
         public static final int backrightmotorCAN  = 4;
