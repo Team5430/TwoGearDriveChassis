@@ -37,9 +37,10 @@ public class RobotContainer {
 
     Trigger joyButtonLeft = lefJoystick.button(3);
 
-    joyButtonLeft.whileTrue((driveTrain.driveToggle()));
+    //Toggle for the drivetoggle
+    joyButtonLeft.toggleOnTrue((driveTrain.driveToggle()));
+    joyButtonLeft.toggleOnFalse((driveTrain.driveToggle()));
 
-    //joyButtonLeft.whileTrue(())
     
   }
   public Command getAutonomousCommand() {

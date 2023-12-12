@@ -2,28 +2,23 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 
 public class driveTrain extends SubsystemBase     {
     
    public static TalonSRX backleftmotor = new TalonSRX(Constants.CANid.backleftmotorCAN);
    public static TalonSRX backrightmotor = new TalonSRX(Constants.CANid.backrightmotorCAN);
    public static TalonSRX frontrightmotor = new TalonSRX(Constants.CANid.frontrightmotorCAN); 
-   public static TalonSRX frontleftmotor = new TalonSRX(Constants.CANid.backleftmotorCAN);
+   public static TalonSRX frontleftmotor = new TalonSRX(Constants.CANid.frontleftmotorCAN);
 
-   
 
   public static DoubleSolenoid driveshifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
     
