@@ -19,9 +19,10 @@ public class driveTrain extends SubsystemBase     {
    public static TalonSRX frontrightmotor = new TalonSRX(Constants.CANid.frontrightmotorCAN); 
    public static TalonSRX frontleftmotor = new TalonSRX(Constants.CANid.frontleftmotorCAN);
 
-
-  public static DoubleSolenoid driveshifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1);
-    
+//when a button is pressed the solenoid goes up and when you press another button it goes down.
+  public static DoubleSolenoid driveshifter = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0, 1); 
+//When we press a button the flag goes up and when the second button is pressed it retacts.
+    public static DoubleSolenoid Pushypush = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
   //When a button is held down it will drive faster
     public static Command driveToggle() {      
 
@@ -60,7 +61,7 @@ public class driveTrain extends SubsystemBase     {
 
     public Command HamburgerHelper(){
         return new InstantCommand(
-        () -> System.out.print("Hamburger helper is help, Hamburger helper is love, Hamburgerhelper is life")
+        () -> Pushypush.getFwdChannel()
         );
     }
 
@@ -71,12 +72,7 @@ public class driveTrain extends SubsystemBase     {
         );
 
     }
-public Command Spoong_boob(){
-    return new InstantCommand(
-        ()-> backleftmotor.set(0.5)
-    );
 
-}
 public Command MAXIMUM_OVERDRIVE(){
     return new InstantCommand(
     () -> backleftmotor.set(1) 
